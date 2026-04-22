@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-const portNumber = 7003;
+const portNumber = process.env.PORT || 7003;
 const bodyParser = require("body-parser");
 const { MongoClient, ServerApiVersion } = require("mongodb");
 
@@ -9,11 +9,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "ejs");
 app.set("views", path.resolve(__dirname, "templates"));
 
-/*
+
 require("dotenv").config({
    path: path.resolve(__dirname, "credentialsDontPost/.env"),
 });
-*/
+
 
 const databaseName = "CMSC335DB";
 const collectionName = "moviesCollection";
